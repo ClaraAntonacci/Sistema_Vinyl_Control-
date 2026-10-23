@@ -1,0 +1,108 @@
+
+CREATE DATABASE IF NOT EXISTS loja_discos_db;
+
+USE loja_discos_db;
+
+
+
+CREATE TABLE usuario (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(100) NOT NULL
+);
+
+
+
+CREATE TABLE disco (
+    id_disco INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(150) NOT NULL,
+    artista VARCHAR(100) NOT NULL,
+    genero VARCHAR(50) NOT NULL,
+    preco_custo DECIMAL(10,2) NOT NULL,
+    preco_venda DECIMAL(10,2) NOT NULL,
+    quantidade_estoque INT NOT NULL DEFAULT 0,
+    estoque_minimo INT NOT NULL DEFAULT 0
+);
+
+
+CREATE TABLE movimentacao_estoque (
+    id_movimentacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_disco INT NOT NULL,
+    id_usuario INT NOT NULL,
+    tipo_movimentacao ENUM('entrada', 'saida') NOT NULL,
+    quantidade INT NOT NULL,
+    data_movimentacao DATE NOT NULL,
+    observacao VARCHAR(250),
+
+    CONSTRAINT fk_movimentacao_disco
+        FOREIGN KEY (id_disco)
+        REFERENCES disco(id_disco),
+
+    CONSTRAINT fk_movimentacao_usuario
+        FOREIGN KEY (id_usuario)
+        REFERENCES usuario(id_usuario)
+);
+
+
+
+INSERT INTO usuario (nome, email, senha) VALUES
+('João Silva', 'joao@vinyl.com',
+ '8d969eef6ecad3c29a3a629280e686cff8ca7d1a691d5d5e5c1a5f4b7b6c5e5'),
+
+('Maria Santos', 'maria@vinyl.com',
+ '8d969eef6ecad3c29a3a629280e686cff8ca7d1a691d5d5e5c1a5f4b7b6c5e5'),
+
+('Pedro Oliveira', 'pedro@vinyl.com',
+ '8d969eef6ecad3c29a3a629280e686cff8ca7d1a691d5d5e5c1a5f4b7b6c5e5');
+
+
+
+INSERT INTO disco
+(titulo, artista, genero, preco_custo, preco_venda,
+ quantidade_estoque, estoque_minimo)
+VALUES
+('Abbey Road', 'The Beatles', 'Rock', 80.00, 120.00, 10, 2),
+
+('Thriller', 'Michael Jackson', 'Pop', 70.00, 110.00, 8, 3),
+
+('The Dark Side of the Moon', 'Pink Floyd',
+ 'Rock Progressivo', 90.00, 140.00, 5, 2);
+
+
+
+INSERT INTO movimentacao_estoque
+(id_disco, id_usuario, tipo_movimentacao, quantidade,
+ data_movimentacao, observacao)
+VALUES
+(1, 1, 'entrada', 10, '2026-10-20',
+ 'Estoque inicial de Abbey Road'),
+
+(2, 2, 'entrada', 8, '2026-10-21',
+ 'Estoque inicial de Thriller'),
+
+(3, 3, 'entrada', 5, '2026-10-22',
+ 'Estoque inicial de The Dark Side of the Moon');
+
+
+
+SELECT * FROM usuario;
+
+SELECT * FROM disco;
+
+SELECT * FROM movimentacao_estoque;
+
+
+
+SELECT
+    m.id_movimentacao,
+    m.tipo_movimentacao,
+    m.quantidade,
+    m.data_movimentacao,
+    d.titulo AS disco,
+    u.nome AS usuario
+FROM movimentacao_estoque m
+INNER JOIN disco d
+    ON m.id_disco = d.id_disco
+INNER JOIN usuario u
+    ON m.id_usuario = u.id_usuario;

@@ -1,0 +1,360 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1790364059237
+  modified: 1790364059237
+  description: ""
+collection:
+  - name: Sistema Vinyl Control
+    meta:
+      id: fld_c4dea86b5bba464eb20d7335db9a889e
+      created: 1792780561363
+      modified: 1792780561363
+      sortKey: -1792780561363
+      description: ""
+    children:
+      - name: usuarios
+        meta:
+          id: fld_15babcbb0a954119a23784f5142d70f3
+          created: 1792780583805
+          modified: 1792780583805
+          sortKey: -1792780583805
+          description: ""
+        children:
+          - url: http://localhost:3000/usuarios/listar
+            name: Listar
+            meta:
+              id: req_ba4afc2d9d8440168cc115180a8952fd
+              created: 1792780572997
+              modified: 1792780776946
+              isPrivate: false
+              description: ""
+              sortKey: -1792780588031
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/usuarios/buscar/1
+            name: Buscar
+            meta:
+              id: req_576c9e2306c846129bfb21d39d22ac8a
+              created: 1792780616809
+              modified: 1792780814860
+              isPrivate: false
+              description: ""
+              sortKey: -1792780616809
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/usuarios/cadastrar
+            name: Cadastrar
+            meta:
+              id: req_72fba391a7ef41038776fdd38c9721da
+              created: 1792780627724
+              modified: 1792780871635
+              isPrivate: false
+              description: ""
+              sortKey: -1792780627724
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                
+                {
+                  "nome": "João Silva",
+                  "email": "joao.silva@teste.com",
+                  "senha": "123456"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/usuarios/login
+            name: Login
+            meta:
+              id: req_ccfba76b8c8c4bbabed6dcbf38e6d0c2
+              created: 1792780663646
+              modified: 1792780922485
+              isPrivate: false
+              description: ""
+              sortKey: -1792780663646
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "email": "joao.silva@teste.com",
+                  "senha": "123456"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Disco
+        meta:
+          id: fld_60132c8a16d64b538cb1510cc8cb0278
+          created: 1792780695376
+          modified: 1792780695376
+          sortKey: -1792780572584
+          description: ""
+        children:
+          - url: http://localhost:3000/discos/listar
+            name: Listar
+            meta:
+              id: req_11af42a132084b87a2ed32e9737a6065
+              created: 1792780695376
+              modified: 1792780982439
+              isPrivate: false
+              description: ""
+              sortKey: -1792780588031
+            method: GET
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImlhdCI6MTc5Mjc4MDkyMiwiZXhwIjoxNzkyODA5NzIyfQ.NhGp3N_T1SLvSQplaOdDOn948AZY6CJeNr-FY2aDdRg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/discos/cadastrar
+            name: Cadastrar
+            meta:
+              id: req_466a3163ef6749459e6e39a068776403
+              created: 1792780695376
+              modified: 1792781168622
+              isPrivate: false
+              description: ""
+              sortKey: -1792780627724
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                
+                {
+                  "titulo": "Abbey Road",
+                  "artista": "The Beatles",
+                  "genero": "Rock",
+                  "precoCusto": 80.00,
+                  "precoVenda": 120.00,
+                  "quantidadeEstoque": 10,
+                  "estoqueMinimo": 2
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImlhdCI6MTc5Mjc4MDkyMiwiZXhwIjoxNzkyODA5NzIyfQ.NhGp3N_T1SLvSQplaOdDOn948AZY6CJeNr-FY2aDdRg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/discos/buscar/1
+            name: Buscar
+            meta:
+              id: req_4aab58ffe7f04d43b824be2d4546cb7a
+              created: 1792780695376
+              modified: 1792781098979
+              isPrivate: false
+              description: ""
+              sortKey: -1792780616809
+            method: GET
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImlhdCI6MTc5Mjc4MDkyMiwiZXhwIjoxNzkyODA5NzIyfQ.NhGp3N_T1SLvSQplaOdDOn948AZY6CJeNr-FY2aDdRg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/discos/excluir/2
+            name: Excluir
+            meta:
+              id: req_8a5f4a44182b42de894c2a8c36a940af
+              created: 1792780695376
+              modified: 1792781269672
+              isPrivate: false
+              description: ""
+              sortKey: -1792780648914
+            method: DELETE
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImlhdCI6MTc5Mjc4MDkyMiwiZXhwIjoxNzkyODA5NzIyfQ.NhGp3N_T1SLvSQplaOdDOn948AZY6CJeNr-FY2aDdRg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/discos/editar/1
+            name: Atualizar
+            meta:
+              id: req_e59a15a2c0504defa8b5d4fc6a545837
+              created: 1792780695376
+              modified: 1792781292870
+              isPrivate: false
+              description: ""
+              sortKey: -1792780663646
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                		"titulo": "Abbey Road",
+                		"artista": "The Beatles",
+                		"genero": "Rock",
+                		"precoCusto": "80",
+                		"precoVenda": "120",
+                		"quantidadeEstoque": 10,
+                		"estoqueMinimo": 5
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImlhdCI6MTc5Mjc4MDkyMiwiZXhwIjoxNzkyODA5NzIyfQ.NhGp3N_T1SLvSQplaOdDOn948AZY6CJeNr-FY2aDdRg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Movimentações
+        meta:
+          id: fld_8bcce66bfecf44eeaf0ac8e4547f7d4a
+          created: 1792780717966
+          modified: 1792780717966
+          sortKey: -1792780578194.5
+          description: ""
+        children:
+          - url: http://localhost:3000/movimentacoes/cadastrar
+            name: Cadastrar
+            meta:
+              id: req_3fbda662fc1b4b54b683a3a69e8eb3dd
+              created: 1792780717966
+              modified: 1792782390249
+              isPrivate: false
+              description: ""
+              sortKey: -1792780627724
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "discoId": 1,
+                  "tipoMovimentacao": "saida",
+                  "quantidade": 21,
+                  "dataMovimentacao": "2026-10-23",
+                  "observacao": "Reposição de estoque"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImlhdCI6MTc5Mjc4MDkyMiwiZXhwIjoxNzkyODA5NzIyfQ.NhGp3N_T1SLvSQplaOdDOn948AZY6CJeNr-FY2aDdRg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/movimentacoes/buscar/1
+            name: Buscar
+            meta:
+              id: req_4849b2b487124dad915298aaeb3bf7c7
+              created: 1792780717966
+              modified: 1792781410803
+              isPrivate: false
+              description: ""
+              sortKey: -1792780616809
+            method: GET
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImlhdCI6MTc5Mjc4MDkyMiwiZXhwIjoxNzkyODA5NzIyfQ.NhGp3N_T1SLvSQplaOdDOn948AZY6CJeNr-FY2aDdRg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/movimentacoes/listar
+            name: Listar
+            meta:
+              id: req_7e039385cafd4d829f0acdeff0e4ddfa
+              created: 1792780717966
+              modified: 1792781376965
+              isPrivate: false
+              description: ""
+              sortKey: -1792780588031
+            method: GET
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImlhdCI6MTc5Mjc4MDkyMiwiZXhwIjoxNzkyODA5NzIyfQ.NhGp3N_T1SLvSQplaOdDOn948AZY6CJeNr-FY2aDdRg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1790364066775
+    modified: 1790364066775
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1790364066764
+    modified: 1790364066764
+    isPrivate: false
