@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Vinyl Control</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="tela-login" class="container-centro">
+    <div class="box-card">
+      <h2>Acesso à Gestão de Acervo e Vendas</h2>
+      <p class="subtitulo">Sistema Vinyl Control</p>
+      
+      <form id="form-login">
+        <div class="grupo-campo">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" required placeholder="seu@email.com">
+        </div>
+        
+        <div class="grupo-campo">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" required placeholder="••••••••">
+        </div>
+
+        <button type="submit" class="btn-primary">Entrar</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="tela-principal" class="container-painel" style="display: none;">
+    <header class="topo-painel">
+      <h1>Painel de Controle</h1>
+      <div class="user-info">
+        <span>Usuário: <strong id="usuario-logado-nome">--</strong></span>
+        <button id="btn-logout" class="btn-sair">Sair</button>
+      </div>
+    </header>
+
+    <main class="conteudo-principal">
+      <div class="grid-menu">
+        <div class="card-menu">
+          <h3>Cadastro de Discos</h3>
+          <p>Gerencie o catálogo de álbuns, artistas, gêneros, preços e estoque mínimo de segurança.</p>
+          <button id="btn-nav-discos" class="btn-primary">Acessar Cadastro</button>
+        </div>
+
+        <div class="card-menu">
+          <h3>Gestão de Acervo e Vendas</h3>
+          <p>Registre movimentações de estoque (vendas e reposições) com alertas de nível mínimo.</p>
+          <button id="btn-nav-acervo" class="btn-primary">Acessar Estoque</button>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- 6. INTERFACE CADASTRO DE DISCO -->
+  <section id="tela-discos" class="container-painel" style="display: none;">
+    <header class="topo-painel">
+      <h2>Cadastro de Discos de Vinil</h2>
+      <button class="btn-voltar">Voltar ao Menu</button>
+    </header>
+
+    <main class="conteudo-principal">
+      <form id="form-disco" class="form-box">
+        <input type="hidden" id="disco-id">
+
+        <div class="linha-form">
+          <div class="grupo-campo flex-2">
+            <label for="disco-titulo">Título do Álbum*</label>
+            <input type="text" id="disco-titulo" required placeholder="Ex: The Dark Side of the Moon">
+          </div>
+          <div class="grupo-campo flex-2">
+            <label for="disco-artista">Artista / Banda*</label>
+            <input type="text" id="disco-artista" required placeholder="Ex: Pink Floyd">
+          </div>
+          <div class="grupo-campo flex-1">
+            <label for="disco-genero">Gênero*</label>
+            <input type="text" id="disco-genero" required placeholder="Ex: Rock Progressivo">
+          </div>
+        </div>
+
+        <div class="linha-form">
+          <div class="grupo-campo flex-1">
+            <label for="disco-custo">Preço de Custo (R$)*</label>
+            <input type="number" step="0.01" id="disco-custo" required placeholder="0.00">
+          </div>
+          <div class="grupo-campo flex-1">
+            <label for="disco-venda">Preço de Venda (R$)*</label>
+            <input type="number" step="0.01" id="disco-venda" required placeholder="0.00">
+          </div>
+          <div class="grupo-campo flex-1">
+            <label for="disco-qtd">Qtd. em Estoque*</label>
+            <input type="number" id="disco-qtd" required placeholder="0">
+          </div>
+          <div class="grupo-campo flex-1">
+            <label for="disco-min">Estoque Mínimo*</label>
+            <input type="number" id="disco-min" required placeholder="0">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary">Salvar Disco</button>
+      </form>
+
+      <div class="tabela-box">
+        <div class="topo-tabela">
+          <h3>Discos Cadastrados</h3>
+          <div class="busca-box">
+            <input type="text" id="input-busca" placeholder="Buscar por título...">
+            <button id="btn-buscar" class="btn-secundario">Buscar</button>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Título</th>
+              <th>Artista</th>
+              <th>Gênero</th>
+              <th>Custo</th>
+              <th>Venda</th>
+              <th>Qtd</th>
+              <th>Mínimo</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-discos-body">
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </section>
+
+  <section id="tela-acervo" class="container-painel" style="display: none;">
+    <header class="topo-painel">
+      <h2>Gestão de Acervo e Vendas </h2>
+      <button class="btn-voltar">Voltar ao Menu</button>
+    </header>
+
+    <main class="conteudo-principal">
+      <form id="form-movimentacao" class="form-box">
+        <div class="grupo-campo">
+          <label for="select-mov-disco">Selecione o Disco (Ordenado Alfabeticamente)</label>
+          <select id="select-mov-disco" required>
+            <option value="">Carregando discos do catálogo...</option>
+          </select>
+        </div>
+
+        <div class="linha-form">
+          <div class="grupo-campo flex-1">
+            <label for="select-mov-tipo">Tipo de Movimentação</label>
+            <select id="select-mov-tipo" required>
+              <option value="entrada">Reposição / Compra</option>
+              <option value="saida">Venda</option>
+            </select>
+          </div>
+
+          <div class="grupo-campo flex-1">
+            <label for="input-mov-qtd">Quantidade</label>
+            <input type="number" id="input-mov-qtd" min="1" required placeholder="1">
+          </div>
+
+          <div class="grupo-campo flex-1">
+            <label for="input-mov-data">Data da Movimentação</label>
+            <input type="date" id="input-mov-data" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary">Registrar Movimentação</button>
+      </form>
+    </main>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

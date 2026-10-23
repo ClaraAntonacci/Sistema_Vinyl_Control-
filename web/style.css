@@ -1,0 +1,308 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --verde-limao: #a8e600;
+  --verde-hover: #8fc700;
+  --verde-escuro: #426000;
+  --branco: #ffffff;
+  --fundo: #f7f9f5;
+  --borda: #e2e7dc;
+  --texto: #252a22;
+  --texto-suave: #70766b;
+}
+
+body {
+  background-color: var(--fundo);
+  color: var(--texto);
+  min-height: 100vh;
+}
+
+
+.container-centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.container-painel {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+
+
+.box-card,
+.form-box,
+.tabela-box,
+.card-menu {
+  background-color: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.box-card {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.subtitulo {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 10px 0 22px;
+}
+
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.grupo-campo label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--texto);
+}
+
+input,
+select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 7px;
+  background-color: var(--branco);
+  color: var(--texto);
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--verde-limao);
+  border-color: var(--verde-hover);
+}
+
+.linha-form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 7px;
+  padding: 11px 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  background-color: var(--verde-limao);
+  color: #20251a;
+}
+
+.btn-primary:hover {
+  background-color: var(--verde-hover);
+}
+
+.btn-secundario {
+  background-color: #edf0e8;
+  color: var(--texto);
+}
+
+.btn-secundario:hover {
+  background-color: #dfe5d6;
+}
+
+.btn-sair,
+.btn-voltar {
+  background-color: #f0f1ed;
+  color: #42483d;
+}
+
+.btn-sair:hover,
+.btn-voltar:hover {
+  background-color: #dfe3d9;
+}
+
+.topo-painel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--verde-limao);
+}
+
+.topo-painel h1,
+.topo-painel h2 {
+  text-align: center;
+}
+
+
+
+.grid-menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-menu h2,
+.card-menu h3 {
+  margin-bottom: 8px;
+}
+
+.card-menu p {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 8px 0 20px;
+}
+
+
+
+.topo-tabela {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.busca-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.busca-box input {
+  min-width: 180px;
+}
+
+.tabela-box {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  background-color: var(--branco);
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--borda);
+  padding: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: #f0f6e5;
+  color: var(--texto);
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafbf8;
+}
+
+tr:hover {
+  background-color: #f1f8e5;
+}
+
+
+@media (max-width: 600px) {
+  .container-painel {
+    padding: 16px;
+  }
+
+  .box-card,
+  .form-box,
+  .tabela-box,
+  .card-menu {
+    padding: 18px;
+  }
+
+  .linha-form {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .linha-form > * {
+    width: 100%;
+  }
+
+  .grid-menu {
+    grid-template-columns: 1fr;
+  }
+
+  .topo-painel {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .topo-tabela {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .busca-box {
+    flex-direction: column;
+  }
+
+  .busca-box input {
+    min-width: 0;
+  }
+
+  .tabela-box {
+    padding: 12px;
+  }
+
+  th,
+  td {
+    padding: 9px;
+    font-size: 0.82rem;
+  }
+}
