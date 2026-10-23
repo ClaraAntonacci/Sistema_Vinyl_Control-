@@ -1,0 +1,54 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum TipoMovimentacao {
+  entrada
+  saida
+}
+
+model Usuario {
+  id       Int    @id @default(autoincrement()) @map("id_usuario")
+  nome     String @db.VarChar(100)
+  email    String @unique @db.VarChar(100)
+  senha    String @db.VarChar(100)
+
+  movimentacoes MovimentacaoEstoque[]
+
+  @@map("usuario")
+}
+
+model Disco {
+  id                 Int     @id @default(autoincrement()) @map("id_disco")
+  titulo             String  @db.VarChar(150)
+  artista            String  @db.VarChar(100)
+  genero             String  @db.VarChar(50)
+  precoCusto         Decimal @db.Decimal(10, 2) @map("preco_custo")
+  precoVenda         Decimal @db.Decimal(10, 2) @map("preco_venda")
+  quantidadeEstoque  Int     @map("quantidade_estoque")
+  estoqueMinimo      Int     @map("estoque_minimo")
+
+  movimentacoes MovimentacaoEstoque[]
+
+  @@map("disco")
+}
+
+model MovimentacaoEstoque {
+  id                Int              @id @default(autoincrement()) @map("id_movimentacao")
+  discoId           Int              @map("id_disco")
+  usuarioId         Int              @map("id_usuario")
+  tipoMovimentacao  TipoMovimentacao @map("tipo_movimentacao")
+  quantidade        Int
+  dataMovimentacao  DateTime         @db.Date @map("data_movimentacao")
+  observacao        String?          @db.VarChar(250)
+
+  disco   Disco   @relation(fields: [discoId], references: [id])
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+
+  @@map("movimentacao_estoque")
+}
