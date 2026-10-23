@@ -121,19 +121,19 @@ As rotas protegidas exigem autenticação por token JWT.
 
 ### 1. Tela de login
 
-![Tela de login](prints/login.png)
+![Tela de login](prints/login.jpeg)
 
 ### 2. Painel principal
 
-![Painel principal](prints/dashboard.png)
+![Painel principal](prints/dashboard.jpeg)
 
 ### 3. Cadastro e listagem de discos
 
-![Cadastro e listagem de discos](prints/discos.png)
+![Cadastro e listagem de discos](prints/discos.jpeg)
 
 ### 4. Controle de estoque e movimentações
 
-![Controle de estoque e movimentações](prints/estoque.png)
+![Controle de estoque e movimentações](prints/estoque.jpeg)
 
 ## Objetivo do projeto
 
